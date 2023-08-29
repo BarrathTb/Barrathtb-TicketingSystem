@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Barrathtb-mod1-TicketingSystem", "Barrathtb-mod1-TicketingSystem.csproj", "{FB7D5C06-19C1-41F0-94AF-D30CE1797677}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB7D5C06-19C1-41F0-94AF-D30CE1797677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB7D5C06-19C1-41F0-94AF-D30CE1797677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB7D5C06-19C1-41F0-94AF-D30CE1797677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB7D5C06-19C1-41F0-94AF-D30CE1797677}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59BFE42A-5E07-4E90-BBCA-43DEF6A40596}
+	EndGlobalSection
+EndGlobal
