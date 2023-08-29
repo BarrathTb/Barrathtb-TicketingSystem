@@ -1,4 +1,11 @@
-.vscode
-bin
-obj
-Barrathtb-mod1-TicketingSystem/bin/Debug/net7.0/
+# Ignore .config directory
+/.config/
+
+# Ignore .vscode directory
+/.vscode/
+
+# Ignore bin directory
+/bin/
+
+# Ignore obj directory
+/obj/
