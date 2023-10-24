@@ -39,12 +39,24 @@ namespace TicketingSystem
         {
                 static void Main(string[] args)
                 {
-                        string ticketFileName = "Tickets.csv"; // Specify the actual file path
 
-                        var ticketService = new TicketService(ticketFileName);
-                        var startService = new StartService(ticketService);
+
+                        // Define bugTicketFileName, enhancementTicketFileName and taskTicketFileName
+                        string bugTicketFileName = "BugTickets.csv";
+                        string enhancementTicketFileName = "EnhancementTickets.csv";
+                        string taskTicketFileName = "TaskTickets.csv";
+
+                        var bugTicketService = new TicketService(bugTicketFileName);
+                        var enhancementTicketService = new TicketService(enhancementTicketFileName);
+                        var taskTicketService = new TicketService(taskTicketFileName);
+
+
+                        var startService = new StartService(bugTicketService, enhancementTicketService, taskTicketService);
                         startService.StartTicketSystem();
+
                 }
         }
 }
+
+
 
