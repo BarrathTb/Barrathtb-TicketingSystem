@@ -31,6 +31,6 @@ public class Ticket
     {
         var stringWatching = string.Join(", ", watching);
 
-        return $"Ticket Id: {ticketId}\nSummary: {summary}\nStatus: {status}\nPriority: {priority}\nSubmitter: {submitter}\nAssigned: {assigned}\nWatching: {stringWatching}";
+        return $"Ticket Id: {ticketId}\nSummary: {summary}\nStatus: {status}\nPriority: {priority}\nSubmitter: {submitter}\nAssigned: {assigned}\nWatching: {stringWatching}\n***************************************************************************************************************************\n\n";
     }
 }
