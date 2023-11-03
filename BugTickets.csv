@@ -1,4 +1,9 @@
-
-1,this is the 1st bug ticket,open,high,thomas barrath,romeo doubs,"maxx crosby|aaron rogers"
-2,this is the 2nd bug ticket,open,high,thomas barrath,christian watson,"jordan love|jimmy g"
-3,this is the 3rd ticket,open,high,thomas barrath,jaire alexander,"carrington valentine|aaron jones"
+1,"this is the 1st bug ticket",open,high,"thomas barrath","romeo doubs","maxx crosby|aaron rogers"
+2,"this is the 2nd bug ticket",open,high,"thomas barrath","christian watson","jordan love|jimmy g"
+3,"this is the 3rd ticket",open,high,"thomas barrath","jaire alexander","carrington valentine|aaron jones"
+4,"this is the 4th bug ticket",open,medium,"brian allen","chase claypool","tj watt|cam heyward"
+5,"this is the 5th bug ticket",in progress,low,"juju smith-schuster","najee harris","kevin dotson|pat freiermuth"
+6,"this is the 6th bug ticket",closed,high,"minkah fitzpatrick","joe haden","cam sutton|terrell edmunds"
+7,"this is the 7th bug ticket",in progress,medium,"diontae johnson","eric ebron","ben roethlisberger|chukwuma okorafor"
+8,"this is the 8th bug ticket",open,low,"alejandro villanueva","zach banner","maurkice pouncey|david decastro"
+12,Fix mobile view,closed,low,thomas,johnDoe,janedoe|jimmyg,moderate

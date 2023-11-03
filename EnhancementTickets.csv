@@ -1,10 +1,6 @@
-Ticket Id: 5436
-Summary: hrthfhgd
-Status: gfdgds
-Priority: gfdgfs
-Submitter: gfdsg
-Assigned: gfdsgs
-Watching: gdsfg, gfdsgs
-***************************************************************************************************************************
-
-
+1,Add dark theme,Open,High,John Doe,Jane Smith,Developer Team,UI/UX Module,500.0,Better for night time usage,3
+2,Implement two-factor authentication,In-progress,Medium,Richard Roe,Alice,Security Team,Authentication Module,750.0,Increase security against unauthorized access,5
+3,Improve page load speed,Open,High,Charlie,Bob,Optimization Team,Web performance Module,300.0,Enhance user experience by reducing wait time,2
+4,Upgrade database system,Closed,Low,David,Eve,Database Team,Database Module,1000.0,Maintain up-to-date technology stack,6
+5,Refactor service layer code,Open,Medium,Frank,Grace,Development Team,Service Layer Module,600.0,Improve maintainability and readability of the code,4
+12,Add a new report view,open,high,thomas,jasonw,jimmyg|janedoe,vs code,500,to make more monies,3
