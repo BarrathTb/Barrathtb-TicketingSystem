@@ -29,8 +29,16 @@ public class Ticket
 
     public override string ToString()
     {
-        var stringWatching = string.Join(", ", watching);
-
-        return $"Ticket Id: {ticketId}\nSummary: {summary}\nStatus: {status}\nPriority: {priority}\nSubmitter: {submitter}\nAssigned: {assigned}\nWatching: {stringWatching}\n***************************************************************************************************************************\n\n";
+        var stringWatching = string.Join("|", Watching);
+        return
+        "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\n" +
+        $"Ticket ID: {TicketId}\n" +
+        $"Summary: {Summary}\n" +
+        $"Status: {Status}\n" +
+        $"Priority: {Priority}\n" +
+        $"Submitter: {Submitter}\n" +
+        $"Assigned: {Assigned}\n" +
+        $"Watching: {stringWatching}\n";
     }
+
 }

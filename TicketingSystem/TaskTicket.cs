@@ -9,4 +9,14 @@ public class TaskTicket : Ticket
         ProjectName = projectName;
         DueDate = dueDate;
     }
+
+    public override string ToString()
+    {
+        var baseString = base.ToString(); // Calls the base (Ticket) ToString method
+        return
+        $"{baseString}" +
+        $"Project Name: {ProjectName}\n" +
+        $"Due Date: {DueDate}\n" +
+        "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\n";
+    }
 }

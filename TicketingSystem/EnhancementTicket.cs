@@ -13,4 +13,12 @@ public class EnhancementTicket : Ticket
         Reason = reason;
         Estimate = estimate;
     }
+
+    public override string ToString()
+    {
+        var baseString = base.ToString(); // Calls the base (Ticket) ToString method
+        return
+        $"{baseString}\nSoftware: {Software}\nCost: {Cost}\nReason: {Reason}\nEstimate: {Estimate}\n" +
+        "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\n";
+    }
 }
