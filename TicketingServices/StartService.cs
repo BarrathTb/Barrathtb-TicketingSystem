@@ -1,5 +1,8 @@
+using System.Globalization;
+
 public class StartService
 {
+
     private TicketService _enhancementTicketService;
     private TicketService _bugTicketService;
     private TicketService _taskTicketService;
@@ -27,7 +30,8 @@ public class StartService
             Console.WriteLine("2. Create a new Enhancement ticket");
             Console.WriteLine("3. Create a new Task ticket");
             Console.WriteLine("4. View all tickets");
-            Console.WriteLine("5. Exit");
+            Console.WriteLine("5. Search for tickets");
+            Console.WriteLine("6. Exit");
             Console.Write("Choose your destiny: ");
             var choice = Console.ReadLine();
 
@@ -46,6 +50,9 @@ public class StartService
                     ViewTickets();
                     break;
                 case "5":
+                    SearchTickets();
+                    break;
+                case "6":
                     launchFlag = true;
                     break;
                 default:
@@ -388,4 +395,88 @@ public class StartService
         Console.WriteLine("\nPress any key to return to the main menu...");
         Console.ReadKey();
     }
+
+    void SearchTickets()
+    {
+        // Create object of CultureInfo:
+        CultureInfo cultureInfo = new CultureInfo("en-US", false);
+        // Now create TextInfo instance:
+        TextInfo textInfo = cultureInfo.TextInfo;
+
+        Console.Clear();
+        Console.WriteLine("Please choose what you would like to search:");
+        Console.WriteLine("1. Search by Ticket Status");
+        Console.WriteLine("2. Search by Ticket Priority");
+        Console.WriteLine("3. Search by Ticket Summary");
+        Console.Write("Enter your choice: ");
+
+        int choice;
+        try
+        {
+            choice = Int32.Parse(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Invalid choice. Please enter a number between 1 and 3.");
+            return;
+        }
+        string userInput;
+        IEnumerable<Ticket> results;
+
+        switch (choice)
+        {
+
+            case 1:
+                Console.Write("Enter the Status to search: ");
+                userInput = Console.ReadLine();
+                userInput = textInfo.ToTitleCase(userInput);
+
+                var bugResultsStatus = _bugTicketService.SearchTickets(userInput, null, null);
+                var enhancementResultsStatus = _enhancementTicketService.SearchTickets(userInput, null, null);
+                var taskResultsStatus = _taskTicketService.SearchTickets(userInput, null, null);
+
+                results = bugResultsStatus.Concat(enhancementResultsStatus).Concat(taskResultsStatus);
+                break;
+
+            case 2:
+                Console.Write("Enter the Priority to search: ");
+
+                userInput = Console.ReadLine();
+                userInput = textInfo.ToTitleCase(userInput);
+
+                var bugResultsPriority = _bugTicketService.SearchTickets(null, userInput, null);
+                var enhancementResultsPriority = _enhancementTicketService.SearchTickets(null, userInput, null);
+                var taskResultsPriority = _taskTicketService.SearchTickets(null, userInput, null);
+
+                results = bugResultsPriority.Concat(enhancementResultsPriority).Concat(taskResultsPriority);
+                break;
+
+            case 3:
+                Console.Write("Enter the Summary to search: ");
+
+                userInput = Console.ReadLine();
+                userInput = textInfo.ToTitleCase(userInput);
+
+                var bugResultsSummary = _bugTicketService.SearchTickets(null, null, userInput);
+                var enhancementResultsSummary = _enhancementTicketService.SearchTickets(null, null, userInput);
+                var taskResultsSummary = _taskTicketService.SearchTickets(null, null, userInput);
+
+                results = bugResultsSummary.Concat(enhancementResultsSummary).Concat(taskResultsSummary);
+                break;
+
+            default:
+                Console.WriteLine("Invalid Input! Please try again.");
+                return;
+        }
+
+        Console.WriteLine($"Found {results.Count()} result(s): ");
+        foreach (var ticket in results)
+        {
+            Console.WriteLine(ticket);
+        }
+    }
+
+
+
+
 }

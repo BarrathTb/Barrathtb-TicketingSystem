@@ -26,7 +26,13 @@ public class TicketService
             {
                 var fields = line.Split(',');
 
-                int id = int.Parse(fields[0]);
+                int id;
+                if (!Int32.TryParse(fields[0], out id))
+                {
+                    Console.WriteLine("Could not parse id: " + fields[0]);
+                    continue;  // skip this line if we can't parse the id
+                }
+
                 string summary = fields[1];
                 string status = fields[2];
                 string priority = fields[3];
@@ -45,9 +51,20 @@ public class TicketService
                 {
                     // Enhancement ticket
                     string software = fields[7];
-                    double cost = double.Parse(fields[8]);
+                    double cost;
+                    if (!Double.TryParse(fields[8], out cost))
+                    {
+                        Console.WriteLine("Could not parse cost: " + fields[8]);
+                        continue;  // skip this line if we can't parse the cost
+                    }
                     string reason = fields[9];
-                    int estimate = int.Parse(fields[10]);
+                    int estimate;
+                    if (!Int32.TryParse(fields[10], out estimate))
+                    {
+                        Console.WriteLine("Could not parse estimate: " + fields[10]);
+                        continue;  // skip this line if we can't parse the estimate
+                    }
+
                     var ticket = new EnhancementTicket(id, summary, status, priority, submitter, assigned, watching, software, cost, reason, estimate);
                     tickets.Add(ticket);
                 }
@@ -55,7 +72,13 @@ public class TicketService
                 {
                     // Task ticket
                     string projectName = fields[7];
-                    DateTime dueDate = DateTime.Parse(fields[8]);
+                    DateTime dueDate;
+                    if (!DateTime.TryParse(fields[8], out dueDate))
+                    {
+                        Console.WriteLine("Could not parse due date: " + fields[8]);
+                        continue;  // skip this line if we can't parse the due date
+                    }
+
                     var ticket = new TaskTicket(id, summary, status, priority, submitter, assigned, watching, projectName, dueDate);
                     tickets.Add(ticket);
                 }
@@ -68,6 +91,7 @@ public class TicketService
 
         return tickets;
     }
+
 
     public void AddTicket(Ticket ticket)
     {
@@ -166,4 +190,15 @@ public class TicketService
         // Default to the original format if no tickets are available
         return "Id,Summary,Status,Priority,Submitter,Assigned,Watching";
     }
+
+    public IEnumerable<Ticket> SearchTickets(string status, string priority, string submitter)
+    {
+        var results = _tickets.Where(t =>
+            (string.IsNullOrEmpty(status) || t.Status.Equals(status)) &&
+            (string.IsNullOrEmpty(priority) || t.Priority.Equals(priority)) &&
+            (string.IsNullOrEmpty(submitter) || t.Submitter.Equals(submitter)));
+
+        return results;
+    }
+
 }
